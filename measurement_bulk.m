@@ -12,14 +12,14 @@ close all;
 
 % Configurations
 prefix = '';
-dir = 'images/round2/n1/all/';
-N = 9;
+dir = 'images/homography/';
+N = 4;
 
 [~, names] = filenames(dir, prefix, N);
 all_ls = [];
 all_props = [];
 for i = 1 : N
-    [ls, props] = measure_med(names(i));
+    [ls, props] = measure_homography(names(i));
     all_ls = [all_ls ls'];
     all_props = [all_props props'];
 end

@@ -12,9 +12,9 @@ clear all;
 close all;
 
 % Configurations
-filename = '4.jpg';
-a = 1;
-b = 2;
+filename = 'images/homography/1.jpg';
+a = 0.75;
+b = 1;
 N = 9;
 
 % Original image & its dimension
@@ -40,7 +40,7 @@ for t = 1 : N
             h = hsv(i, j, 1);
             s = hsv(i, j, 2);
             v = hsv(i, j, 3);
-            if r / g > th
+            if v < th
                 mask(i, j) = 1;
             end
         end
