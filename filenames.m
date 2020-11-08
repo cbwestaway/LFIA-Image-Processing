@@ -1,5 +1,5 @@
-function [names, names_with_ext, indices] = filenames(dir, prefix, N)
-    indices = string(linspace(1, N, N)');
+function [names, names_with_ext, indices] = filenames(dir, prefix, a, N)
+    indices = string(linspace(a, a + N - 1, N)');
     names = [];
     names_with_ext = [];
 

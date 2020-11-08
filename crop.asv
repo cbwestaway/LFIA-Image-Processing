@@ -3,11 +3,11 @@ clc;
 clear all;
 close all;
 
-dir = 'images/round2.5/half_dl/n2/iphone/';
+dir = 'images/round2.5/half_dl/n3/iphone/';
 prefix = 'IMG_';
 output_dir = dir;
 output_prefix = '';
-ia = 1574;
+ia = 1592;
 N = 5;
 oa = 1;
 

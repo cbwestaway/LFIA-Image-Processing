@@ -10,16 +10,13 @@
 %   * props - (l1, l2/l1, l3/l1, l4/l1, l5/l1)
 %}
 function [ls, props] = measure_homography(filename)
-    % Configurations
-    th = 0.78125;
-
     % Original image & its dimension
     img = imread(filename);
     hsv = rgb2hsv(img);
     img = im2double(img);
     [m, n, ~] = size(img);
-    % figure
-    % imshow(img)
+%     figure
+%     imshow(img)
 
     % Mask creations
     mask = zeros(m, n);
@@ -31,18 +28,18 @@ function [ls, props] = measure_homography(filename)
             h = hsv(i, j, 1);
             s = hsv(i, j, 2);
             v = hsv(i, j, 3);
-            if v <= th
+            if v < 0.5
                 mask(i, j) = 1;
             end
         end
     end
-    % figure
-    % subplot(1, 2, 1);
-    % imshow(mask1, []);
-    % title("Mask 1 - Reference Rectangle");
-    % subplot(1, 2, 2);
-    % imshow(mask2, []);
-    % title("Mask 2 - Control & Test Lines");
+%     figure
+%     subplot(1, 2, 1);
+%     imshow(img);
+%     title("Image");
+%     subplot(1, 2, 2);
+%     imshow(mask, []);
+%     title("Mask");
 
     % Locate the beginnings & ends of the active regions per column
     % a-b reference rectangle
@@ -61,7 +58,7 @@ function [ls, props] = measure_homography(filename)
                 a = i;
             elseif a > 0 && b == 0 && mask(i, j) == 0
                 b = i - 1;
-            elseif c == 0 && mask(i, j)
+            elseif b > 0 && c == 0 && mask(i, j)
                 c = i;
             elseif c > 0 && d == 0 && mask(i,j) == 0
                 d = i - 1;
