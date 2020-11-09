@@ -1,9 +1,5 @@
 %{
 Interpret a list of images
-Procedure:
-    1. 
-Output:
-    * 
 %}
 
 % Clear history
@@ -20,13 +16,12 @@ N = 15;
 res = zeros(1, N);
 for i = 1 : N
     img = imread(names(i));
-    res(i) = interp(img, @getMarker, @applyHomography, @temp)
+    res(i) = interp(img, @find_ref, @applyHomography, @temp);
 end
 
+figure
 hist_analysis(res, "Result");
 
-function [out] = temp(img, var1, var2)
-    imshow(img);
-    var1, var2
-    out = 1;
+function [out] = temp(img, var1, var2);
+    out = var2 - var1;
 end

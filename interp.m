@@ -9,7 +9,7 @@ Output: res - synthesized metric (e.g. T/C ratio of the R-/S-channel values)
 %}
 
 function [res] = interp(img, find_ref_func, apply_homography_func, interp_func)
-    [~, ref_end, ref_height] = find_ref_func(img);
+    [ref_end, ref_height] = find_ref_func(img);
     [c_start, c_end, t_start, t_end] = apply_homography_func(ref_end, ref_height);
     c_metric = interp_func(img, c_start, c_end);
     t_metric = interp_func(img, t_start, t_end);
