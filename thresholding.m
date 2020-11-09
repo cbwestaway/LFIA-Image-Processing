@@ -12,13 +12,22 @@ clear all;
 close all;
 
 % Configurations
-filename = 'images/homography/1.jpg';
-a = 0.75;
-b = 1;
+filename = 'images/round2.5/negative/all_iphone_zoomed/1.jpg';
+% negative, all_iphone_zoomed - 0.25
+% negative, all_iphone_unzoomed - 0.5
+% one_dl, all_iphone_zoomed - 0.375
+% one_dl, all_iphone_unzoomed - 0.375
+% half_dl, zoomed, hist-eq'ed - 0.2578
+% half_dl, unzoomed, hist-eq'ed - 0.125
+% one_dl, zoomed, hist-eq'ed - 0.2578
+% negative, zoomed, hist-eq'ed - 0.2578
+a = 0.25;
+b = 0.28125;
 N = 9;
 
 % Original image & its dimension
 img = imread(filename);
+img = histeq(img);
 hsv = rgb2hsv(img);
 img = im2double(img);
 [m, n, ~] = size(img);

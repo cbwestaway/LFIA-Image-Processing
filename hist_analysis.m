@@ -21,5 +21,5 @@ pd = fitdist(y', 'Normal');
 ci = paramci(pd);
 mu_ci_lower = ci(1, 1);
 mu_ci_upper = ci(2, 1);
-legend({sprintf('CI of mean = (%3.4f, %3.4f)', mu_ci_lower, mu_ci_upper)}, 'location', 'best', 'FontSize', 15);
+% legend({sprintf('CI of mean = (%3.4f, %3.4f)', mu_ci_lower, mu_ci_upper)}, 'location', 'best', 'FontSize', 15);
 title(title_text, 'FontSize', 15);

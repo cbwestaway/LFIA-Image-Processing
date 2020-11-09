@@ -11,7 +11,8 @@ Output:
     * ref_height - estimated length (b_med - a_med)
 %}
 function [ref_end, ref_height] = find_ref(img)
-    th = 0.5;
+    th = 0.2578;
+    img = histeq(img);
     hsv = rgb2hsv(img);
     [m, n, ~] = size(img);
 
@@ -50,5 +51,8 @@ function [ref_end, ref_height] = find_ref(img)
     ref_start = median(as);
     ref_end = median(bs);
     ref_height = ref_end - ref_start;
+    if ref_height < 0.05 * n
+        disp("find_ref failed!!");
+    end
 end
 
