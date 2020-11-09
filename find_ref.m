@@ -13,7 +13,6 @@ Output:
 function [ref_end, ref_height] = find_ref(img)
     th = 0.5;
     hsv = rgb2hsv(img);
-    img = im2double(img);
     [m, n, ~] = size(img);
 
     % 1. Mask construction
