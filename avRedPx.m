@@ -1,5 +1,4 @@
 function av = avRedPx(I, startRow, endRow)
-    wid = width(I);
     px = I(startRow:endRow, :, 1);
-    av = mean(px ./ ((endRow - startRow) * wid));
+    av = mean(px);
 end
