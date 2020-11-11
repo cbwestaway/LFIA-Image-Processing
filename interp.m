@@ -10,9 +10,14 @@ Output: res - synthesized metric (e.g. T/C ratio of the R-/S-channel values)
 
 function [res] = interp(img, find_ref_func, apply_homography_func, interp_func)
     [ref_end, ref_height] = find_ref_func(img);
-%     ref_end = ref_end + 16;
-%     ref_height = ref_height + 8;
+% Calibration for half_dl below
+%     ref_end = ref_end + 40;
+%     ref_height = ref_height + 15;
+% Calibration for one_dl below
+%     ref_end = ref_end + 35;
+%     ref_height = ref_height + 15;
     [c_start, c_end, t_start, t_end] = apply_homography_func(ref_end, ref_height);
+    img = histeq(img);
     og = img;
     masked = visualize(img, ref_end - ref_height, ref_end, c_start, c_end, t_start, t_end, 0);
 %     a = round(c_start * 0.95);

@@ -9,7 +9,7 @@ close all;
 
 % Configurations
 prefix = '';
-dir = 'images/round2.5/half_dl/all_iphone_zoomed/';
+dir = 'images/round2.5/negative/all_iphone_zoomed/';
 N = 10;
 % N = 15 for negative results
 
@@ -20,8 +20,9 @@ for i = 1 : N
     img = imread(names(i));
     img = im2double(img);
     subplot(N/5, 5, i);
-    res(i) = interp(img, @find_ref, @applyHomography, @avRedPx);
+    res(i) = interp(img, @getMarker, @applyHomography, @avRedPx);
 end
+  sgtitle('Original Images Adjacent to Masked Images');
 
 figure
-hist_analysis(res, "Results");
+hist_analysis(res, "T/C Ratio Using Pixel R-Channel Values");
