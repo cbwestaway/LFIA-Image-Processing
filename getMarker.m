@@ -1,4 +1,4 @@
-function [mStart, mEnd, mHeight] = getMarker(I)
+function [mEnd, mHeight] = getMarker(I)
     % Marker height
     mStart = 0;
     mEnd = 0;
@@ -23,8 +23,8 @@ end
     a more sophisticated detector.
 %}
 function isMarker = isMarker(i, I, wid)
-    bThresh = 0.4; 
-    passThresh = 0.8;
+    bThresh = 0.25; 
+    passThresh = 0.9;
     passes = 0;
     for j=1:wid
         r = I(i, j, 1);
