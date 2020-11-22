@@ -8,12 +8,12 @@ clear all;
 close all;
 
 % Configurations
-PREFIX = "iphone/iphone_zoomed/";
+PREFIX = "pixel/Zoomed/";
 N = 5;
 SETS = num2cell([
-   3 5;
-   2 3;
+   2 4;
    1 2;
+   2 3;
 ]);
 DIR_NAMES = ["negative" "half_dl" "one_dl"];
 HIST_TITLES = ["Negative" "1/2 x Detection Limit" "1 x Detection Limit"];
@@ -42,7 +42,7 @@ for i = 1 : 3
 end
 
 function [results] = analyze(DIR_PREFIX, PREFIX, SET_FROM, SET_TO, N, HOMOGRAPHY_MATRIX, interp_func, hist_title, fig_filename)
-    SHOW_STITCHED = false;
+    SHOW_STITCHED = true;
     N_SET = SET_TO - SET_FROM + 1;
     set_indices = string(linspace(SET_FROM, SET_TO, N_SET)');
     if SHOW_STITCHED
@@ -56,6 +56,7 @@ function [results] = analyze(DIR_PREFIX, PREFIX, SET_FROM, SET_TO, N, HOMOGRAPHY
         for i = 1 : N
             img = imread(names(i));
             img = im2double(img);
+            img = imrotate(img, 90);
             if SHOW_STITCHED
                 % >>>> Need to edit this section to add processed image
                 [~, masked] = construct_mask(img, [c_start, c_end; t_start, t_end]);
