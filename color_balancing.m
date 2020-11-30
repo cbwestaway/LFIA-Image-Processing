@@ -10,15 +10,21 @@ close all;
 
 % Configurations
 N = 5;
-PREFIX = "iphone/iphone_zoomed/";
+% PREFIX = "iphone/iphone_zoomed/";
+% SETS = num2cell([
+%    3 5;
+%    2 3;
+%    1 2;
+% ]);
+PREFIX = "pixel/Zoomed/";
 SETS = num2cell([
-   3 5;
-   2 3;
+   2 4;
    1 2;
+   2 3;
 ]);
 DIR_NAMES = ["negative" "half_dl" "one_dl"];
 HIST_TITLES = ["Negative" "1/2 x Detection Limit" "1 x Detection Limit"];
-FIG_TITLES = ["Negative" "Half Detection Limit" "One Detection Limit"];
+FIG_TITLES = ["Before and After Color Balancing (iPhone - Negative)" "Before and After Color Balancing (iPhone - Half Detection Limit)" "Before and After Color Balancing (iPhone - One Detection Limit)"];
 
 for i = 1 : 3
     dir_prefix = strcat("images/round2.5/", DIR_NAMES(i), "/n");
@@ -39,6 +45,7 @@ function [results] = color_balance_test(DIR_PREFIX, PREFIX, SET_FROM, SET_TO, N)
         for i = 1 : N
             img = imread(names(i));
             img = im2double(img);
+            img = imrotate(img, 90);
             balanced = color_balance(img);
             stitched = [img balanced];
             subplot(N_SET, N, (set-1) * N + i);

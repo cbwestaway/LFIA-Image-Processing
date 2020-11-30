@@ -1,4 +1,6 @@
-function [r, g, b] = get_mean_strip_color(img)
+function [r, g, b] = get_whitest_px(img)
+    % Smooth out high frequency noise
+    img = imgaussfilt(img, 1);
     % Find the brightest pixel in the image
     S = sum(img, 3);
     [~,idx] = max(S(:));

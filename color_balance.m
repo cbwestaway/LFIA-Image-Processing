@@ -1,5 +1,5 @@
 function balanced = color_balance(img)
-    [r, g, b] = get_mean_strip_color(img);
+    [r, g, b] = get_whitest_px(img);
     base_white = 1;
     % define scaling so that the strip appears to be white
     r_s = base_white / r;
