@@ -4,12 +4,12 @@ clear all;
 close all;
 
 
-concentrations = {'0', '1-6', '1-3', '1-2', '2-3', '5-6'};
+concentrations = {'0', '1-6', '1-3', '1-2', '2-3', '5-6', '1'};
 assays = {'s1', 's2', 's3'};
 
 M = 4 : 6;
-v_ratios = zeros(6, 9);
-rg_ratios = zeros(6, 9);
+v_ratios = zeros(7, 9);
+rg_ratios = zeros(7, 9);
 for c=1:length(concentrations)
     conc = concentrations(c);
     ind = 1;
