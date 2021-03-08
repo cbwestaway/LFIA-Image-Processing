@@ -9,7 +9,7 @@
 %   * ls - lengths of the regions (l1, l2, l3, l4, l5)
 %   * props - (l1, l2/l1, l3/l1, l4/l1, l5/l1)
 %}
-function [ls, props] = measure_homography(filename)
+function [ls, props, c, d, e, f] = measure_homography(filename)
     % Original image & its dimension
     img = imread(filename);
     hsv = rgb2hsv(img);
@@ -103,4 +103,3 @@ function [ls, props] = measure_homography(filename)
     ls = [l1 l2 l3 l4 l5];
     props = [l1 l2/l1 l3/l1 l4/l1 l5/l1];
 end
-

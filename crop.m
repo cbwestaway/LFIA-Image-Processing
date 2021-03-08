@@ -3,12 +3,12 @@ clc;
 clear all;
 close all;
 
-dir = 'images/round2.5/half_dl/n2/iphone/';
+dir = 'images/round4/1DL_B/';
 prefix = 'IMG_';
 output_dir = dir;
 output_prefix = '';
-ia = 1574;
-N = 5;
+ia = 2957;
+N = 30;
 oa = 1;
 
 ib = ia + N;

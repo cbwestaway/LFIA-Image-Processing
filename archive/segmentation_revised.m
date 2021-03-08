@@ -5,9 +5,9 @@ close all;
 
 concentrations = {'0', '1/6', '1/3', '1/2', '2/3', '5/6', '1'};
 DIR = "images/round3/selected/";
-M = 1 : 6;
-v_ratios = zeros(7, 6);
-rg_ratios = zeros(7, 6);
+M = 4 : 6;
+v_ratios = zeros(7, 3);
+rg_ratios = zeros(7, 3);
 for n = 0:6
     for m = 1 : length(M)
         filename = strcat(DIR, string(n), "_", string(M(m)), ".jpg");
